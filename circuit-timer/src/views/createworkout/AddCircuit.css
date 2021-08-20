@@ -1,0 +1,18 @@
+.AddCircuit {
+    border: 1px black solid;
+    margin: 20px;
+    padding: 20px;
+}
+
+.AddCircuit input {
+    display: block;
+    margin: 5px;
+    
+}
+
+.AddCiruitGrid span {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+

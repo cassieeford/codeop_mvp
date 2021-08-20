@@ -1,0 +1,11 @@
+.AddWorkout form input {
+    display: block;
+    margin: 5px;
+    
+}
+
+.AddWorkout {
+    border: 1px black solid;
+    margin: 20px;
+    padding: 10px;
+ }
