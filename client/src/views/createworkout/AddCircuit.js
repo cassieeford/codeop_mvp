@@ -17,7 +17,7 @@ function AddCircuit(props) {
   const [exercises, setExercises] = useState([]);
   const [circuit, setCircuit] = useState(EmptyCircuitData);
   const [circuitID, setCircuitID] = useState(0);
-  let [nextId, setNextId] = useState(1);
+  let [nextId, setNextId] = useState(0);
   let [circuitNamesIX, setCircuitNamesIX] = useState(0)
 
   //adds an exercise from AddExercise.js to exercises state
@@ -41,7 +41,7 @@ function AddCircuit(props) {
     let newCircuit = {...circuit};
 
     newCircuit.circuitID = circuitID;
-    newCircuit.name = circuitNames[circuitNamesIX]; //add letter name to circuit e.g. 'A'
+    newCircuit.circuitName = circuitNames[circuitNamesIX]; //add letter name to circuit e.g. 'A'
     newCircuit.exercises = exercises; //add exercises
     newCircuit.numberOfSets = circuit.numberOfSets; //add number of sets
     newCircuit.restTimeBetweenSets= circuit.restTimeBetweenSets; //add rest between sets

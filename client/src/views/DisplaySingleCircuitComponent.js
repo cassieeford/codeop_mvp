@@ -6,7 +6,7 @@ function DisplaySingleCircuitComponent(props) {
 
     return (
         <div className="DisplaySingleCircuitComponent" >
-            <h3>{props.c.name} {' - ' } 
+            <h3>{props.c.circuitName} {' - ' } 
             {props.c.numberOfSets} {' Sets - '}
             {props.c.restTimeBetweenSets}{' Seconds Rest Between Sets'}</h3>
            
