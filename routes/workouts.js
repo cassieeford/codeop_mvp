@@ -72,6 +72,8 @@ router.delete("/:id", async function(req, res, next) {
  DELETE FROM workouts
  WHERE workoutID = ${id}
  `;
+
+ 
   //update database
   try {
     let workout = await getWorkout(id);

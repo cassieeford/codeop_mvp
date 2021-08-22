@@ -22,7 +22,7 @@ CREATE TABLE circuits (
     restTimeBetweenSets VARCHAR(40), 
     numberOfSets VARCHAR(40), 
     PRIMARY KEY (circuitID), 
-    FOREIGN KEY (workoutID) REFERENCES workouts (workoutID)
+    FOREIGN KEY (workoutID) REFERENCES workouts (workoutID) ON DELETE cascade
 );
 
 INSERT INTO circuits (circuitID, workoutID, circuitName, restTimeBetweenSets, numberOfSets)
@@ -38,7 +38,7 @@ CREATE TABLE exercises (
     timeOn VARCHAR(40), 
     timeOff VARCHAR(40), 
     PRIMARY KEY (id), 
-    FOREIGN KEY (circuitID) REFERENCES circuits (circuitID)
+    FOREIGN KEY (circuitID) REFERENCES circuits (circuitID) ON DELETE cascade
 );
 
 
