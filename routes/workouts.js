@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const db = require("../model/helper");
 
-//helper function- get all students
+//helper function- get all workouts
 
 async function sendAllWorkouts(res) {
   let response = await db("SELECT * FROM workouts;");

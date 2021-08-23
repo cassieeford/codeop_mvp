@@ -2,7 +2,6 @@
 import './App.css';
 import { useHistory } from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
-
 import Navbar from './components/Navbar';
 import Routes from './components/Routes';
 

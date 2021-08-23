@@ -9,9 +9,9 @@ var workoutsRouter = require("./routes/workouts.js");
 
 var app = express();
 
-const bp = require('body-parser')
-app.use(bp.json())
-app.use(bp.urlencoded({ extended: true }))
+// const bp = require('body-parser')
+// app.use(bp.json())
+// app.use(bp.urlencoded({ extended: true }))
 
 
 app.use(cors());
