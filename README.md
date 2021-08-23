@@ -12,7 +12,7 @@
 ```bash
   DB_HOST=localhost
   DB_USER=root
-  DB_NAME=facebook
+  DB_NAME=workout_library
   DB_PASS=YOURPASSWORD
 ```
 
