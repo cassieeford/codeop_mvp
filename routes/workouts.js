@@ -45,8 +45,9 @@ router.get("/:id", async function(req, res, next) {
 });
 
 // INSERT a new workout into the DB
-router.post("", async function(req, res, next) {
+router.post("/", async function(req, res, next) {
   //get info from the request body
+  
   let {workoutName, restBetweenCircuits, circuits} = req.body;
   let sql = `
   INSERT INTO workouts (workoutName, restBetweenCircuits)
@@ -59,8 +60,9 @@ router.post("", async function(req, res, next) {
   try {
     let result = await db(sql);
     let workoutId = result.data[0].insertId;
-    console.log('workoutID', workoutId);
-    console.log('circuits', circuits);
+    console.log(req.body);
+    //console.log('workoutID', workoutId);
+    //console.log('circuits', circuits);
     res.status(201);
     sendAllWorkouts(res);
   } catch (err) {
