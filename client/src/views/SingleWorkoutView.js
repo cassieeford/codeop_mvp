@@ -30,9 +30,24 @@ import './SingleWorkoutView.css';
 
 function SingleWorkoutView(props) {
     let { id } = useParams();  // get user ID from URL
-    let workout = props.workoutLibrary.find(w => w.workoutID === Number(id));
+    //let workout = props.workoutLibrary.find(w => w.workoutID === Number(id));
+    async function getWorkoutById(id) {
 
-    // Return 404 if user doesn't exist
+
+        try {
+          let response = await fetch(`/workouts/${id}`);
+          if (response.ok) {
+            let workout = await response.json();
+            // ?
+          } else {
+            console.log(`error: ${response.status} ${response.statusText}`);
+          }
+        } catch (err) {
+          console.log(`Server error: ${err.message}`);
+        }
+      }
+    let workout = getWorkoutById(id)
+    // Return 404 if workout doesn't exist
     if (!workout) {
         return <Error404View />;
     } 

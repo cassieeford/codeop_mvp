@@ -7,7 +7,15 @@ const db = require("../model/helper");
 async function sendAllWorkouts(res) {
   let response = await db("SELECT * FROM workouts;");
   let workouts = response.data;
-  res.send(workouts);
+  response = await db("SELECT * FROM circuits;");
+  let circuits= response.data;
+  response = await db("SELECT * FROM exercises;");
+  let exercises = response.data;
+
+  let circuitsWithExercises = addExercisesToCircuits(circuits, exercises);
+  let completeWorkouts = addCircuitsToWorkouts(workouts, circuitsWithExercises)
+
+  res.send(completeWorkouts);
 }
 
 async function getWorkout(id) {
@@ -32,7 +40,7 @@ function makeStr(arr) {
   }
 
   function addExercisesToCircuits(circuitsArr, exercisesArr) {
-    //circuits.forEach(c => c.exercises = []);
+    circuitsArr.forEach(c => c.exercises = []);
     for (let e in exercisesArr) {
         let circuitIDforthisExercise = exercisesArr[e].circuitID;
         //console.log(e.exerciseName, circuitIDforthisExercise)
@@ -46,6 +54,19 @@ function makeStr(arr) {
     }
 }
 return circuitsArr;
+}
+//helper function, adds circuits to workouts
+function addCircuitsToWorkouts(workoutsArr, circuitsArr) {
+  workoutsArr.forEach(w => w.circuits = []);
+  for (let c in circuitsArr) {
+      let workoutIDForThisCircuit = circuitsArr[c].workoutID 
+      for (let w in workoutsArr) {
+          if (workoutsArr[w].workoutID === workoutIDForThisCircuit) {
+              workoutsArr[w].circuits.push(circuitsArr[c])
+          }
+      }
+  }
+return workoutsArr
 }
 
 
@@ -84,7 +105,7 @@ router.get("/:id", async function(req, res, next) {
       //get the arrays of circuits and exercise objects 
       let circuitsArr = circuits.data;
       //needed for function
-      circuitsArr.forEach(c => c.exercises = []);
+      //circuitsArr.forEach(c => c.exercises = []);
       let exercisesArr = exercises.data;
       let resultCircuits = addExercisesToCircuits(circuitsArr, exercisesArr);
       let workoutdata = workout.data[0];
