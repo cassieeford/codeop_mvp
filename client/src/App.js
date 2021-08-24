@@ -51,10 +51,13 @@ function App() {
 
     try {
       //send http request
+      console.log( JSON.stringify(workout));
       let response = await fetch("/workouts", options);
-      //if response is ok, update students state with response from database
+     
+      //if response is ok, update workoutLibrary state with response from database
       if (response.ok) {
         let workouts = await response.json();
+        console.log(workouts)
         //update state
         setWorkoutLibrary(workouts);
       } else {

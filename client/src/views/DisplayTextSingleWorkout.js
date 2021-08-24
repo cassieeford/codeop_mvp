@@ -15,7 +15,7 @@ function DisplayTextSingleWorkout(props) {
         <div className="DisplayTextSingleWorkout" >
             <h1>{workout.workoutName}</h1>
             {  circuits.map((c)=> (
-            <DisplaySingleCircuitComponent c={c} />)) } 
+            <DisplaySingleCircuitComponent c={c} key={c.circuitID}/>)) } 
 
             {/* <h2>{workout.workoutName}</h2>
                 {  circuits.map((c)=> {

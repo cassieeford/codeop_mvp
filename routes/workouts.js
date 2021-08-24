@@ -216,25 +216,29 @@ router.post("/", async function(req, res, next) {
    
     //get exercises out of circuits
     let exercisesObjArr = extractExercisesFromCircuits(circuits);
+    //sort circuits object alphabetically so order is uniform
+    sortedCircuits = circuits.map(circuitobj => Object.fromEntries(Object.entries(circuitobj).sort()))
     //get array of values from new circuits obj array
-    let circuitsValues = getValuesFromCircuitsArr(circuits);
+    let circuitsValues = getValuesFromCircuitsArr(sortedCircuits);
     //put the workoutID in first position of each arr in circuitsValues arr
     circuitsValues.forEach(cArr => cArr.unshift(workoutId))
     //make a string of circuits values for sql insert
     let circuitsValuesStr = makeCircuitSqlStr(circuitsValues);
 
     let sqlCircuits = `
-    INSERT INTO circuits (workoutID, circuitName, numberOfSets, restTimeBetweenSets, circuitID)
+    INSERT INTO circuits (workoutID, circuitID, circuitName, numberOfSets, restTimeBetweenSets)
         VALUES ${circuitsValuesStr};
   `;
  
     let resultCircuits = await db(sqlCircuits);
 
     //insert exercises into exercise table
-    let exercisesValuesArr = getValuesFromExercisesArr(exercisesObjArr)
+    //sort exercise objects so order of keys is uniform
+    let sortedexercises = exercisesObjArr.map(exerciseobj => Object.fromEntries(Object.entries(exerciseobj).sort()))
+    let exercisesValuesArr = getValuesFromExercisesArr(sortedexercises)
     let exercisesValuesStr = makeExerciseSqlStr(exercisesValuesArr);
     let sqlExercises = `
-    INSERT INTO exercises (exerciseName, timeOn, timeOff, id, circuitID)
+    INSERT INTO exercises (circuitID, exerciseName, id, timeOff, timeOn)
         VALUES ${exercisesValuesStr};
   `;
 

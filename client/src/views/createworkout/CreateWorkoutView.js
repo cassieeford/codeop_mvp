@@ -13,7 +13,7 @@ const EmptyWorkoutData = {
 function CreateWorkoutView(props) {
   const [workout, setWorkout] = useState(EmptyWorkoutData);
   const [circuits, setCircuits] = useState([]);
-  const [workoutID, setWorkoutID] = useState(2);
+  //const [workoutID, setWorkoutID] = useState(2);
   
 
   const addCircuitToWorkout = (newCircuit) => {
@@ -35,7 +35,7 @@ function CreateWorkoutView(props) {
 
     //add new workout properties
     newWorkout.circuits = circuits;
-    newWorkout.workoutID = workoutID;
+    //newWorkout.workoutID = workoutID;
     newWorkout.workoutName = workout.workoutName;
     newWorkout.restBetweenCircuits = workout.restBetweenCircuits;
    
@@ -43,8 +43,8 @@ function CreateWorkoutView(props) {
     props.addWorkoutToLibraryCb(newWorkout);
 
     //reset 
-    let nextWorkoutID = workoutID + 1;
-    setWorkoutID(workoutID => nextWorkoutID);
+    //let nextWorkoutID = workoutID + 1;
+    //setWorkoutID(workoutID => nextWorkoutID);
     setCircuits([]);
     setWorkout(EmptyWorkoutData);
 

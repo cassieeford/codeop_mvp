@@ -16,8 +16,8 @@ let EmptyCircuitData = {
 function AddCircuit(props) {
   const [exercises, setExercises] = useState([]);
   const [circuit, setCircuit] = useState(EmptyCircuitData);
-  const [circuitID, setCircuitID] = useState(0);
-  let [nextId, setNextId] = useState(0);
+  const [circuitID, setCircuitID] = useState(4);
+  let [nextId, setNextId] = useState(14);
   let [circuitNamesIX, setCircuitNamesIX] = useState(0)
 
   //adds an exercise from AddExercise.js to exercises state
