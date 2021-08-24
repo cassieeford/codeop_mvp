@@ -10,7 +10,7 @@ import { Link, useParams } from 'react-router-dom';
 function DisplayTextSingleWorkout(props) {
     let workout = props.workout;
     let circuits = workout.circuits;
-    let numCircuits = workout.circuits.length -1
+    
     return (
         <div className="DisplayTextSingleWorkout" >
             <h1>{workout.workoutName}</h1>

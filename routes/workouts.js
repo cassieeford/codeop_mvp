@@ -23,22 +23,95 @@ async function getWorkout(id) {
   return results.data.length === 1 ? results.data[0] : null;
 }
 
-//used to turn arrays of numbers into strings for sql statements
+//used to turn arrays of values into strings for sql statements
 function makeStr(arr) {
   let str = '(';
   for (let n in arr) {
       if (n < arr.length -1) {
           let s = String(arr[n]);
-          s = s + ', ';
+          s = '\'' + s + '\'' + ', ';
           str = str + s;
       } else {
           let s = String(arr[n]);
-           s = s + ')';
+           s = '\'' + s + '\''+ ')';
           str = str + s;}
   }
   return str
   }
+//helper function removes exercises from a circuit object and returns new array of just exercises
+function extractExercisesFromCircuits(circuitsArr) {
+  let exercisesArr = [];
+  for (let c in circuitsArr) {
+      let exercises = circuitsArr[c].exercises
+      circuitIDForThisExercise = circuitsArr[c].circuitID
+      for (e in exercises) {
+      exercises[e].circuitID = (circuitIDForThisExercise)
+      exercisesArr.push(exercises[e]);
+      
+      
+      }
+  }
+return exercisesArr
+}
 
+//helper- given an array of exercise objects, make an array of arrays containing just the values
+function getValuesFromExercisesArr(exerciseObjArr) {
+    
+  let valuesArr = [];
+   for (let e in exerciseObjArr) {
+       let tempArr = [];
+       Object.entries(exerciseObjArr[e]).forEach(([key, value]) => {
+           tempArr.push(value)
+       }) 
+       valuesArr.push(tempArr);
+   }
+ return valuesArr;
+}
+//makes a string of of exercises array for sql statement
+function makeExerciseSqlStr(exercisesValuesArr) {
+  let finalStr = "";
+  for (let c in exercisesValuesArr) {
+      if (c < exercisesValuesArr.length -1) {
+          finalStr = finalStr + makeStr(exercisesValuesArr[c]) + ','}
+      else {
+          finalStr = finalStr + makeStr(exercisesValuesArr[c])
+      }
+  }
+return finalStr
+}
+
+//gets all the values of a circuit object, returns array of all values and DELETES exercise key
+//so exercises need to be extracted with extractExercisesFromCircuits before using this function
+  function getValuesFromCircuitsArr(circuitsArr) {
+    circuitsArr.forEach(c => delete c["exercises"]);
+    let valuesArr = [];
+     for (let c in circuitsArr) {
+         let tempArr = [];
+         Object.entries(circuitsArr[c]).forEach(([key, value]) => {
+             tempArr.push(value)
+         }) 
+         valuesArr.push(tempArr);
+     }
+   return valuesArr;
+ }
+
+//takes an array of arrays- each inner array contains values of circuit obj
+//returns a str of the values to be used for sql insert statement
+ function makeCircuitSqlStr(circuitsValuesArr) {
+  let finalStr = "";
+  for (let c in circuitsValuesArr) {
+      if (c < circuitsValuesArr.length -1) {
+          finalStr = finalStr + makeStr(circuitsValuesArr[c]) + ','}
+      else {
+          finalStr = finalStr + makeStr(circuitsValuesArr[c])
+      }
+  }
+return finalStr
+}
+
+
+
+//helper function, adds exercises to circuits for GET/SEND requests
   function addExercisesToCircuits(circuitsArr, exercisesArr) {
     circuitsArr.forEach(c => c.exercises = []);
     for (let e in exercisesArr) {
@@ -55,7 +128,9 @@ function makeStr(arr) {
 }
 return circuitsArr;
 }
-//helper function, adds circuits to workouts
+
+
+//helper function, adds circuits to workouts for GET/SEND requests
 function addCircuitsToWorkouts(workoutsArr, circuitsArr) {
   workoutsArr.forEach(w => w.circuits = []);
   for (let c in circuitsArr) {
@@ -138,9 +213,33 @@ router.post("/", async function(req, res, next) {
   try {
     let result = await db(sql);
     let workoutId = result.data[0].insertId;
-    console.log(req.body);
-    //console.log('workoutID', workoutId);
-    //console.log('circuits', circuits);
+   
+    //get exercises out of circuits
+    let exercisesObjArr = extractExercisesFromCircuits(circuits);
+    //get array of values from new circuits obj array
+    let circuitsValues = getValuesFromCircuitsArr(circuits);
+    //put the workoutID in first position of each arr in circuitsValues arr
+    circuitsValues.forEach(cArr => cArr.unshift(workoutId))
+    //make a string of circuits values for sql insert
+    let circuitsValuesStr = makeCircuitSqlStr(circuitsValues);
+
+    let sqlCircuits = `
+    INSERT INTO circuits (workoutID, circuitName, numberOfSets, restTimeBetweenSets, circuitID)
+        VALUES ${circuitsValuesStr};
+  `;
+ 
+    let resultCircuits = await db(sqlCircuits);
+
+    //insert exercises into exercise table
+    let exercisesValuesArr = getValuesFromExercisesArr(exercisesObjArr)
+    let exercisesValuesStr = makeExerciseSqlStr(exercisesValuesArr);
+    let sqlExercises = `
+    INSERT INTO exercises (exerciseName, timeOn, timeOff, id, circuitID)
+        VALUES ${exercisesValuesStr};
+  `;
+
+    
+    let resultExercises = await db(sqlExercises);
     res.status(201);
     sendAllWorkouts(res);
   } catch (err) {

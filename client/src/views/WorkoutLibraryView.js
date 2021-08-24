@@ -12,7 +12,7 @@ function WorkoutLibraryView(props) {
           {
                 props.workoutLibrary.map((w) => (
                     <li key={w.workoutID}>
-                        <Link to={'/workouts/'+w.workoutID}>{w.workoutName}</Link>
+                        <Link to={'/workouts/'+w.workoutID}>{w.workoutName} </Link>
                     </li>
                 ))
                 }
