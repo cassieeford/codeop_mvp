@@ -3,3 +3,7 @@
     grid-template-columns: repeat (2, 1 fr);
 
 }
+
+.h1 {
+    border-bottom: blue 2px solid;
+}

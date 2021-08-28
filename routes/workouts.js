@@ -205,8 +205,8 @@ router.post("/", async function(req, res, next) {
   let sql = `
   INSERT INTO workouts (workoutName, restBetweenCircuits)
       VALUES ('${workoutName}', '${restBetweenCircuits}');
-  SELECT LAST_INSERT_ID();
-`;
+  SELECT LAST_INSERT_ID(); 
+`; 
   
 
   //update db
@@ -228,7 +228,7 @@ router.post("/", async function(req, res, next) {
     let sqlCircuits = `
     INSERT INTO circuits (workoutID, circuitID, circuitName, numberOfSets, restTimeBetweenSets)
         VALUES ${circuitsValuesStr};
-  `;
+  `;  
  
     let resultCircuits = await db(sqlCircuits);
 

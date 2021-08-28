@@ -16,7 +16,15 @@
     padding: 10px;
 }
 
+.Navbar a {
+    margin-right: 10px;
+}
+
 /* 'active' class automatically added by React Router */
 .Navbar a.active {
     background-color: #ccc;
+}
+
+.Navbar  {
+    color: white;
 }

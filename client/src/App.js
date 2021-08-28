@@ -106,16 +106,15 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <div className = "container">
+      
+     <Navbar />
       <Routes 
       workoutLibrary={workoutLibrary}
       addWorkoutToLibraryCb = {workout => addNewWorkout(workout)}/>   
    
-   
 
-      
-
-
+   </div>
     </div>
   );
 }

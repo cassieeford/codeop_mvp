@@ -1,0 +1,8 @@
+.DisplaySingleCircuitComponent h4 {
+    border-bottom: gray 2px solid;
+    font-size: 1em;
+}
+
+.DisplaySingleCircuitComponent span {
+    margin-left: 50px;
+}
