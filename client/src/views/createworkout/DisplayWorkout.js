@@ -6,25 +6,42 @@ function DisplayWorkout(props) {
   
 
     return (
+
+      <div className="workout">
+        <h4> 3. Review Your Workout</h4>
       <div className="DisplayWorkout">
-          <h3> 2. Add Workout to Library </h3>
+          
+
+          <ul><h6>
+          {circuits.map(c=> 
+          <li>Circuit {c.circuitName}: 
+              {c.exercises.map(e=> 
+              <li>{e.exerciseName} for {e.timeOn} seconds/ {e.timeOff} seconds rest</li>)}
+              </li>)}
+              </h6></ul>
+          {/* </ul>
         { circuits.map(c=> 
-        <h2 key={c.circuitName}>{c.circuitName}
+        <h6 key={c.circuitName}>{c.circuitName}
           {c.exercises.map(e => <p key={e.id}>
             {e.exerciseName} {' '} {e.timeOn} {':'} {e.timeOff}
           </p>)}
         
-        </h2>)
+        </h6>) */}
          
 
-        }
+        {/* } */}
              
-          <ul >
+          {/* <ul >
          
-          </ul>
-               
+          </ul> */}
+
+          {/* <h5>Current circuit: {props.circuitNames[props.circuitNamesIX]}</h5>
+          <ul >
+            {e.map(x => <h6 key={x.id}>{x.exerciseName} {' '} for {x.timeOn} seconds / {x.timeOff} second rest</h6>)}
+          </ul>  */}
 
   
+      </div>
       </div>
     );
   }

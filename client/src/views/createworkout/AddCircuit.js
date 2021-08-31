@@ -19,7 +19,7 @@ function AddCircuit(props) {
   const [circuitID, setCircuitID] = useState(4);
   let [nextId, setNextId] = useState(14);
   let [circuitNamesIX, setCircuitNamesIX] = useState(0)
-
+  
   //adds an exercise from AddExercise.js to exercises state
   const addExercise = (newExercise) => {
  
@@ -74,41 +74,65 @@ function AddCircuit(props) {
   };
 
     return (
-      <div className="AddCircuit">
-          <h3> 1. Create workout by adding a new circuit: </h3>
-          <span className="AddCircuitGrid">
-          <AddExercise addExerciseCb={exercise => addExercise(exercise)}/>
-          <DisplayCurrentCircuit 
-            exercises={exercises}
-            circuitNames={circuitNames}
-            circuitNamesIX={circuitNamesIX}
 
-            />
-            </span>
-          <span className="AddCircuitForm">
-          <form onSubmit={e => handleSubmit(e)} >
-          <label> Enter number of sets: </label>
-          <input
-            type="text"
-            name="numberOfSets"
-            placeholder="e.g. '4' "
-            value={circuit.numberOfSets}
-            onChange={e => handleChange(e)}
-          />
-          <label> Enter rest time (seconds) between sets: </label>
-          <input
-            type="text"
-            name="restTimeBetweenSets"
-            placeholder="e.g. '60'"
-            value={circuit.restTimeBetweenSets}
-            onChange={e => handleChange(e)}
-          />
-          <button type="submit" >Add Circuit to Workout</button>
-          </form>
-          </span>
-          
+      <div>
+      <div className="AddCircuit">
+      <h4> 1. Create a Circuit </h4>
+      <span className="AddCircuitGrid">
+      <AddExercise addExerciseCb={exercise => addExercise(exercise)}/>
+      <DisplayCurrentCircuit 
+        exercises={exercises}
+        circuitNames={circuitNames}
+        circuitNamesIX={circuitNamesIX}
+        />
+        </span>
+
+        </div>
+
+        <div className = 'circuitCreate'>
+
+        <h4> 2. Create Sets for your Circuit  </h4>
+<form
+className="AddCircuitForm"
+onSubmit={e => handleSubmit(e)}
+>
+  <div className="form-row">
   
-      </div>
+  <div className="form-group col-md-6">
+    <label for="numberOfSets">How many sets?</label>
+    <input 
+      type="text" 
+      className="form-control" 
+      id="numberOfSets" 
+      name="numberOfSets"
+      placeholder="e.g. '4' "
+      value={circuit.numberOfSets}
+      onChange={e => handleChange(e)}
+      />
+  </div>
+  <div className="form-group col-md-6">
+    <label for="restTimeBetweenSets">Rest between sets? (seconds)</label>
+    <input 
+      type="text" 
+      className="form-control" 
+      id="restTimeBetweenSets" 
+      name="restTimeBetweenSets"
+      placeholder="e.g. '60'"
+      value={circuit.restTimeBetweenSets}
+      onChange={e => handleChange(e)}
+      />
+  </div>
+  
+  </div>
+
+      <h5>Finished Circuit?</h5>
+  <button type="submit" className="btn btn-primary">Add Circuit to My Workout</button>
+
+</form>
+
+          
+          </div>
+          </div>
     );
   }
   

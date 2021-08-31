@@ -4,13 +4,9 @@ import { useHistory } from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
 import Navbar from './components/Navbar';
 import Routes from './components/Routes';
+import Footer from './components/Footer'
 
 import sampledata from "./sampledata";
-
-
-
-
-
 
 
 function App() {
@@ -106,15 +102,17 @@ function App() {
 
   return (
     <div className="App">
-      <div className = "container">
+      
       
      <Navbar />
+
+     <div className = "container">
       <Routes 
       workoutLibrary={workoutLibrary}
       addWorkoutToLibraryCb = {workout => addNewWorkout(workout)}/>   
-   
+      </div>
 
-   </div>
+      <Footer/>
     </div>
   );
 }

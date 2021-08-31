@@ -22,10 +22,7 @@ import './SingleWorkoutView.css';
     {exerciseName: "superman hold", timeOn: "30", timeOff:"10", id:5},
     ], 
     numberOfSets: "2", restTimeBetweenSets: "30"}],
-}
-
-
-*/
+}*/
 
 
 function SingleWorkoutView(props) {
@@ -66,18 +63,8 @@ function SingleWorkoutView(props) {
     return (
         <div className="SingleWorkoutView">
         <span className="grid" >
-        <DisplayTextSingleWorkout workout={workout} />
-           
-        
-         
+        <DisplayTextSingleWorkout workout={workout} />   
         </span>
-    
-        
-       
-         
-
-        
-          
             <Link to="/workouts/">back</Link>
         </div>
     );

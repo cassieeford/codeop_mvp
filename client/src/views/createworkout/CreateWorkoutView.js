@@ -23,7 +23,6 @@ function CreateWorkoutView(props) {
     let newCircuits = [...circuits, newCircuit];
     setCircuits(circuits => newCircuits);
     
-
   }
 
   const handleSubmit = (e) => {
@@ -61,12 +60,59 @@ function CreateWorkoutView(props) {
 
     return (
       <div className="AddWorkout">
-        <h1>Create Workout Form</h1>
+        <h4>Create Your Workout</h4>
 
         <AddCircuit addCircuitToWorkoutCb={newCircuit => addCircuitToWorkout(newCircuit)}/>
          
           <DisplayWorkout circuits={circuits}/>
-          <form onSubmit={e => handleSubmit(e)}>
+
+          
+
+          <form
+          className="FinishedWorkout"
+          onSubmit={e => handleSubmit(e)}
+          >
+            <h4>4. Finalise your Workout</h4>
+            <div className="form-row">
+            
+            <div className="form-group col-form-label">
+              <label for="restBetweenCircuits">Rest Time Between Circuits (seconds)?</label>
+              <input 
+                type="text" 
+                className="form-control" 
+                id="restBetweenCircuits" 
+                name="restBetweenCircuits"
+                placeholder="e.g. '60'"
+                value={workout.restBetweenCircuits}
+                onChange={e => handleChange(e)}
+                />
+            </div>
+            <div className="form-group col-form-label">
+              <label for="workoutName">Give Your Workout a Name</label>
+              <input 
+                type="text" 
+                className="form-control" 
+                id="workoutName" 
+                name="workoutName"
+                placeholder="Name this workout"
+                value={workout.workoutName}
+                onChange={e => handleChange(e)}
+                />
+            </div>
+            
+            </div>
+
+                <h5>Finished Workout?</h5>
+                <div className="form-row align-items-center">
+                <div className="col-form-label">
+            <button type="submit" className="btn btn-primary">Submit Workout</button>
+                </div>
+                </div>
+          </form>
+
+
+
+          {/* <form onSubmit={e => handleSubmit(e)}>
           <label> Enter rest time between circuits: </label>
           <input
             type="text"
@@ -82,11 +128,11 @@ function CreateWorkoutView(props) {
             placeholder="Name this workout"
             value={workout.workoutName}
             onChange={e => handleChange(e)}
-          />
+          /> */}
 
-     
+{/*      
           <button type="submit"> Save Workout </button>
-            </form>
+            </form> */}
           
           
       

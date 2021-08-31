@@ -7,9 +7,9 @@ function DisplayCurrentCircuit(props) {
 
     return (
       <div className="DisplayCurrentCircuit">
-          <h3>Current circuit: {props.circuitNames[props.circuitNamesIX]}</h3>
+          <h5>Current circuit: {props.circuitNames[props.circuitNamesIX]}</h5>
           <ul >
-            {e.map(x => <h3 key={x.id}>{x.exerciseName} {' '} {x.timeOn}</h3>)}
+            {e.map(x => <h6 key={x.id}>{x.exerciseName} {' '} for {x.timeOn} seconds / {x.timeOff} second rest<br></br></h6>)}
           </ul>
   
       </div>
