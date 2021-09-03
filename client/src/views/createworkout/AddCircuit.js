@@ -65,8 +65,8 @@ function AddCircuit(props) {
     //extract data
     let { name , value } = e.target;
 
-    //set data
-    let newCircuitData = {...EmptyCircuitData};
+    //set data //...circuit
+    let newCircuitData = {...circuit};
 
     newCircuitData[name] = value;
     setCircuit(circuit => newCircuitData);

@@ -1,5 +1,5 @@
 .AddCircuit {
-    border: 1px black solid;
+    border: 1px #B8860B solid;
     margin: 20px;
     padding: 20px;
 }
@@ -16,7 +16,7 @@
 }
 
 .circuitCreate {
-    border: 1px black solid;
+    border: 1px #B8860B solid;
     margin: 20px;
     padding: 20px;
 }

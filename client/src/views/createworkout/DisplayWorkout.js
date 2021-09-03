@@ -19,6 +19,8 @@ function DisplayWorkout(props) {
               <li>{e.exerciseName} for {e.timeOn} seconds/ {e.timeOff} seconds rest</li>)}
               </li>)}
               </h6></ul>
+
+              
           {/* </ul>
         { circuits.map(c=> 
         <h6 key={c.circuitName}>{c.circuitName}

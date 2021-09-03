@@ -36,8 +36,8 @@ function Routes(props) {
             </Route>
 
               {/* Start workout timer for this workout*/}
-              <Route path="/play-workout">
-                <PlayWorkout  />
+              <Route path="/workouts/:id/play-workout">
+                <PlayWorkout workoutLibrary={props.workoutLibrary} />
             </Route>
 
             {/* Create & Save a new workout */}

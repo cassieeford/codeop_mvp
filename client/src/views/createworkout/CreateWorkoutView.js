@@ -104,7 +104,7 @@ function CreateWorkoutView(props) {
 
                 <h5>Finished Workout?</h5>
                 <div className="form-row align-items-center">
-                <div className="col-form-label">
+                // <div className="col-form-label">
             <button type="submit" className="btn btn-primary">Submit Workout</button>
                 </div>
                 </div>

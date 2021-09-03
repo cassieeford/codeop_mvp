@@ -9,6 +9,8 @@ function WorkoutLibraryView(props) {
 
     return (
 
+<div>
+   <h4>Select your Workout</h4>
 
 <div className="row">
 
@@ -19,7 +21,8 @@ props.workoutLibrary.map((w) => (
 
 
    <div className="card mt-3"  
-   style={{width:"15rem", height:"15rem", objectFit: "cover"}}
+   style={{width:"15rem", height:"20rem", objectFit: "cover"}}
+   key={w.workoutID}
    >
    {/* <img className="card-img-top" src="" alt="" style={{width:"15rem", height:"8rem", justifyContent:"center"}}/> */}
 
@@ -30,9 +33,10 @@ props.workoutLibrary.map((w) => (
    <p className='text-center'>
    <p className="card-text">
 
-        <h8>Duration: ????</h8>
+        <h8>Duration:</h8> <br></br>
+        <h8>Date Created:</h8>
 
-       <ul> 1st Exercise in:
+       <ul> 1st Exercise in each circuit:
           {w.circuits[0] &&<li>Circuit {w.circuits[0].circuitName}: {w.circuits[0].exercises[0].exerciseName}</li>}
           {w.circuits[1] &&<li>Circuit {w.circuits[1].circuitName}: {w.circuits[1].exercises[0].exerciseName}</li>}
           {w.circuits[2] &&<li>Circuit {w.circuits[2].circuitName}: {w.circuits[2].exercises[0].exerciseName}</li>}
@@ -62,7 +66,7 @@ props.workoutLibrary.map((w) => (
 </div>
   
 
-
+</div>
 
      
     );

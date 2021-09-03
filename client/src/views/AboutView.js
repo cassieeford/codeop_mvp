@@ -6,6 +6,7 @@ function AboutView(props) {
         <div className="AboutView">
             <h2>About</h2>
             <p>The site is to create and save circuit workouts</p>
+            
         </div>
     );
 }

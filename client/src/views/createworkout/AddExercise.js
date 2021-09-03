@@ -33,12 +33,14 @@ function AddExercise(props) {
 
 <form className = "AddExercise" onSubmit={e => handleSubmit(e)}>
 <h5>Add an Exercise</h5>
+
+<div>
   <div className="form-row align-items-center">
 
     <div className="form-group col-md-4 col-form-label">
       <label for="exerciseName">Exercise Name</label>
       <input 
-        type="text" 
+        type="text"
         className="form-control" 
         id="exerciseName"
         name="exerciseName"
@@ -74,7 +76,7 @@ function AddExercise(props) {
     </div>
 
       </div>
-
+      </div>
     <div className="form-row align-items-center">
       <div className="col-form-label">
   <button 

@@ -5,19 +5,24 @@ import { Link, useParams } from 'react-router-dom';
 import './DisplayTextSingleWorkout.css'
 
 
-
-
-
 function DisplayTextSingleWorkout(props) {
+
+    
     let workout = props.workout;
     let circuits = workout.circuits;
+
+
     
     return (
         <div className="DisplayTextSingleWorkout" >
             <h1>{workout.workoutName}</h1>
             {  circuits.map((c)=> (
-            <DisplaySingleCircuitComponent c={c} key={c.circuitID}/>)) } 
+            <DisplaySingleCircuitComponent c={c} key={c.circuitID}/>
+            )) } 
 
+
+            
+            
             {/* <h2>{workout.workoutName}</h2>
                 {  circuits.map((c)=> {
                    <h2 key={c.name}>{c.name} </h2>
@@ -27,8 +32,12 @@ function DisplayTextSingleWorkout(props) {
                            
                      )}))}
     }) }  */}
+        
+        {/* <Link to=`/workouts/${id}/play-workout`>Start Workout</Link> */}
+   {/* <div className="d-flex justify-content-center">
+   <a href={'/workouts/'+workout.workoutID+'/play-workout'} className="btn btn-primary">Start Workout</a>
+   </div> */}
 
-        <Link to="/play-workout/">Start Workout</Link>
               
     </div>
 
