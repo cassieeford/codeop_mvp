@@ -16,6 +16,7 @@ function WorkoutLibraryView(props) {
 
 {
 props.workoutLibrary.map((w) => (
+   
 <div className="col" >
 <div className='justify-content-center'>
 
@@ -25,6 +26,13 @@ props.workoutLibrary.map((w) => (
    key={w.workoutID}
    >
    {/* <img className="card-img-top" src="" alt="" style={{width:"15rem", height:"8rem", justifyContent:"center"}}/> */}
+   
+   <div className = 'deleteWorkout'>
+  <div className= 'd-flex justify-content-end'
+  style = {{padding: 0, margin: 0,}}>
+   <button onClick={(e) => props.deleteWorkoutCb(w.workoutID)} type="button">x</button>
+   </div>
+   </div>
 
 <div className="card-body">
    <h6 className='d-flex justify-content-center'>
@@ -42,20 +50,16 @@ props.workoutLibrary.map((w) => (
           {w.circuits[2] &&<li>Circuit {w.circuits[2].circuitName}: {w.circuits[2].exercises[0].exerciseName}</li>}
        </ul>
 
-{/* wont work as a map? */}
-
-       {/* <ul>
-           {w.circuits[0].exercises[0].map((e)=> (
-          <li>{e.exerciseName}</li>
-           ))}
-       </ul> */}
    </p>
    </p>
-   <div className="d-flex justify-content-center">
+   
+   <div className="d-flex justify-content-center mb-5">
    <a href={'/workouts/'+w.workoutID} className="btn btn-primary">Go to Workout</a>
    </div>
+   </div>
 
-</div>
+
+
 
 </div>
 </div>

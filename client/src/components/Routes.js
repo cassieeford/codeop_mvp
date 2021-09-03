@@ -27,7 +27,10 @@ function Routes(props) {
     
             {/* View Workout Library */}
             <Route path="/workouts" exact>
-                <WorkoutLibraryView workoutLibrary={props.workoutLibrary} />
+                <WorkoutLibraryView 
+                workoutLibrary={props.workoutLibrary}
+                deleteWorkoutCb = {(id) =>props.deleteWorkoutCb(id)}
+                 />
             </Route>
     
             {/* View Single Workout */}

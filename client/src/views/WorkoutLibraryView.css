@@ -3,3 +3,17 @@ ul {
     list-style: none;
     text-align: left;
 }
+.deleteWorkout button{
+    background: transparent;
+    border: 1px solid #B8860B;
+    outline: none;
+    /* background: transparent; */
+    border-radius: 7px;
+    color: #B8860B;
+    cursor: pointer;
+    font-weight: 600; 
+    width: 20px;
+    height:40px;
+    text-align: center;
+    justify-content: center;
+}

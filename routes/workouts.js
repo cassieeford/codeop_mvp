@@ -47,8 +47,6 @@ function extractExercisesFromCircuits(circuitsArr) {
       for (e in exercises) {
       exercises[e].circuitID = (circuitIDForThisExercise)
       exercisesArr.push(exercises[e]);
-      
-      
       }
   }
 return exercisesArr
@@ -67,7 +65,9 @@ function getValuesFromExercisesArr(exerciseObjArr) {
    }
  return valuesArr;
 }
-//makes a string of of exercises array for sql statement
+
+
+//makes a string of exercises array for sql statement
 function makeExerciseSqlStr(exercisesValuesArr) {
   let finalStr = "";
   for (let c in exercisesValuesArr) {
@@ -207,8 +207,6 @@ router.post("/", async function(req, res, next) {
       VALUES ('${workoutName}', '${restBetweenCircuits}');
   SELECT LAST_INSERT_ID(); 
 `; 
-  
-
   //update db
   try {
     let result = await db(sql);
@@ -231,7 +229,6 @@ router.post("/", async function(req, res, next) {
   `;  
  
     let resultCircuits = await db(sqlCircuits);
-
     //insert exercises into exercise table
     //sort exercise objects so order of keys is uniform
     let sortedexercises = exercisesObjArr.map(exerciseobj => Object.fromEntries(Object.entries(exerciseobj).sort()))
@@ -241,8 +238,6 @@ router.post("/", async function(req, res, next) {
     INSERT INTO exercises (circuitID, exerciseName, id, timeOff, timeOn)
         VALUES ${exercisesValuesStr};
   `;
-
-    
     let resultExercises = await db(sqlExercises);
     res.status(201);
     sendAllWorkouts(res);
@@ -250,6 +245,8 @@ router.post("/", async function(req, res, next) {
     res.status(500).send({ error: err.message });
   }
 });
+
+
 
 // DELETE a workout from the DB
 router.delete("/:id", async function(req, res, next) {
@@ -260,8 +257,6 @@ router.delete("/:id", async function(req, res, next) {
  DELETE FROM workouts
  WHERE workoutID = ${id}
  `;
-
- 
   //update database
   try {
     let workout = await getWorkout(id);

@@ -109,7 +109,9 @@ function App() {
      <div className = "container">
       <Routes 
       workoutLibrary={workoutLibrary}
-      addWorkoutToLibraryCb = {workout => addNewWorkout(workout)}/>   
+      addWorkoutToLibraryCb = {workout => addNewWorkout(workout)}
+      deleteWorkoutCb = {(id) =>deleteWorkout(id)}
+      />
       </div>
 
       <Footer/>

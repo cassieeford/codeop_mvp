@@ -1,4 +1,4 @@
-/* main {
+main {
     display: flex;
     flex-direction:column;
     height: 90vh;
@@ -56,4 +56,4 @@ button {
 .timer-actions {
     margin-top: 20px;
     text-align: center;
-} */
+}
