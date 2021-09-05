@@ -7,6 +7,7 @@ import CircuitTimer from './CircuitTimer'
 
 function DisplaySingleCircuitComponent(props) {
 
+
     return (
 
         
@@ -27,6 +28,17 @@ function DisplaySingleCircuitComponent(props) {
             break={e.timeOff}
             /> 
             ))}
+            
+{/*             
+            <CircuitSessions 
+                        key={Id}
+                        exercise={exercise}
+                        circuit={sessionTime}/> 
+            <CircuitSessions 
+                        key={Id}
+                        exercise={exercise}
+                        circuit={breakTime}/>  */}
+           
 
             </span>
 
