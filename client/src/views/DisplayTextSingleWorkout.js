@@ -6,13 +6,10 @@ import './DisplayTextSingleWorkout.css'
 
 
 function DisplayTextSingleWorkout(props) {
-
     
     let workout = props.workout;
     let circuits = workout.circuits;
 
-
-    
     return (
         <div className="DisplayTextSingleWorkout" >
             <h1>{workout.workoutName}</h1>
@@ -21,8 +18,6 @@ function DisplayTextSingleWorkout(props) {
             )) } 
 
 
-            
-            
             {/* <h2>{workout.workoutName}</h2>
                 {  circuits.map((c)=> {
                    <h2 key={c.name}>{c.name} </h2>

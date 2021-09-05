@@ -197,6 +197,8 @@ router.get("/:id", async function(req, res, next) {
   }
 });
 
+
+
 // INSERT a new workout into the DB
 router.post("/", async function(req, res, next) {
   //get info from the request body

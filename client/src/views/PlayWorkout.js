@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Error404View from './Error404View';
-// import Timer from './Timer';
-// import Pomodoro from './Clock/Pomodoro'
+
 
 const testArr = [30,10,30,10,30,120];
 function PlayWorkout(props) {
