@@ -14,6 +14,8 @@ const CircuitSessions = (props) => {
     //useRef accepts one argument as the initial value and returns a reference (current value)https://dmitripavlutin.com/react-useref-guide/
     const countRef = useRef(null)
 
+  
+
     //must embed setInterval into functions so it renders in the Console when counting down. This allows us to stop the clock at the 0 value. 
     let saveCallback = useRef(tock);
     let intervalId = useRef();

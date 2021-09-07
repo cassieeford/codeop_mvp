@@ -1,14 +1,29 @@
-import react from 'react'
-import PomClock from './PomClock'
+import react, {useState, useContext} from 'react'
 import PomTimer from './PomTimer'
+// import PomSettings from './PomSettings'
+// import SettingsContext from './SettingsContext'
 
-function PomApp () {
+
+function PomApp (props) {
 
     return (
         <div>
-            <PomClock/>
-            <PomTimer/>
+            
+            <main>
+  
+                <PomTimer
+                    key={props.id}
+                    exercise={props.exercise}
+                    session={props.session}
+                    break={props.break}/>
+            
+            </main>
+
         </div>
+
+
+
+
     )
 }
 export default PomApp

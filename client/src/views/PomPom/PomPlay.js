@@ -9,17 +9,15 @@ function PomPlay (props) {
                 <button {...props}
                     style = {{
                         backgroundColor: 'transparent',
-                        height: '70px',
+                        height: '80px',
                         border: 'none',
-                        // textAlign: 'center',
                         color: '#B8860B',
-                        margin: '0px 10px',
-                        width: '70px',
+                        textStrokeColor: 'black',
+                        textStrokeWidth: '1px',
+                        // margin: '0px 10px',
+                        width: '80px',
                         border:'0px',
-                        // display: 'inline-block',
-                        // display: 'flex',
-                        // justifyContent: 'space-evenly',
-                        padding: '5px 10px',
+                        // padding: '5px 10px',
                         cursor: 'pointer',
                         }}
                         >                  

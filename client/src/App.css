@@ -37,11 +37,12 @@ h2 {
 h3 {
     color: black;
     text-align: center;
-    padding-top: 8px;
+    padding-top: 40px;
+    padding-bottom: 20px;
     letter-spacing: 3px;
+    letter-spacing: 7px;
     font-weight: 500;
-    border-bottom: solid #B8860B;
-    font-size: 22px;
+    font-size: 30px;
   }
   h4 {
     color: black;
