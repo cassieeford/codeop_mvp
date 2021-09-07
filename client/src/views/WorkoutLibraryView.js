@@ -10,16 +10,14 @@ function WorkoutLibraryView(props) {
     return (
 
 <div>
-   <h4>Select your Workout</h4>
+   <h2>SELECT WORKOUT</h2>
 
 <div className="row">
-
 {
 props.workoutLibrary.map((w) => (
-   
-<div className="col" >
-<div className='justify-content-center'>
 
+   <div className="col" >
+   <div className='justify-content-center'>
 
    <div className="card mt-3"  
    style={{width:"15rem", height:"22rem", objectFit: "cover"}}
@@ -42,7 +40,7 @@ props.workoutLibrary.map((w) => (
          border: 'none',
          textAlign: 'center',
          color: 'white',
-         margin: '10px 10px',
+         margin: '5px 5px',
          width: '40px',
          boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
          fontWeight: '800',
@@ -56,7 +54,7 @@ props.workoutLibrary.map((w) => (
 
 <div className="card-body">
    <h6 className='d-flex justify-content-center'>
-   <h6 className="card-title">{w.workoutName}</h6>
+   <h5 className="card-title">{w.workoutName}</h5>
    </h6>
    <p className='text-center'>
    <p className="card-text">
