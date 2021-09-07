@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import './AddExercise.css';
 
 const EmptyFormData = {
   exerciseName: "",
@@ -31,14 +30,20 @@ function AddExercise(props) {
     return (
 
 
-<form className = "AddExercise" onSubmit={e => handleSubmit(e)}>
+<form 
+  className = "AddExercise" 
+  onSubmit={e => handleSubmit(e)}
+  >
 <h5>Add an Exercise</h5>
 
 <div>
   <div className="form-row align-items-center">
 
     <div className="form-group col-md-4 col-form-label">
-      <label for="exerciseName">Exercise Name</label>
+      <label for="exerciseName" 
+      style = {{
+        fontSize: '16px'
+      }}>Exercise Name</label>
       <input 
         type="text"
         className="form-control" 
@@ -81,51 +86,24 @@ function AddExercise(props) {
       <div className="col-form-label">
   <button 
     type="submit" 
-    className="btn btn-primary">
+    className="btn btn-primary"
+    style = {{
+      backgroundColor: '#B8860B',
+      height: '40px',
+      border: 'none',
+      textAlign: 'center',
+      color: 'white',
+      margin: '0px 10px',
+      width: '300px',
+      boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
+      }}
+    >
       Add Exercise to My Circuit</button>
       </div>
       </div>
       
 </form>
 
-
-
-
-
-      // <div className="AddExercise">
-          
-      // <form onSubmit={e => handleSubmit(e)}>
-      //   <span id="text-fields">
-      //     <label>Enter exercise name</label>
-      //     <input
-      //       type="text"
-      //       name="exerciseName"
-      //       placeholder="e.g. 'jumping jacks'"
-      //       value={exercise.exerciseName}
-      //       onChange={e => handleChange(e)}
-      //     />
-          // <label>Enter duration time in seconds: </label>
-          // <input
-          //   type="text"
-          //   name="timeOn"
-          //   placeholder="e.g. '30'"
-          //   value={exercise.timeOn}
-          //   onChange={e => handleChange(e)}
-          // />
-      //     <label>Enter rest time in seconds: </label>
-      //       <input
-      //       type="text"
-      //       name="timeOff"
-      //       placeholder="e.g. '10'"
-      //       value={exercise.timeOff}
-      //       onChange={e => handleChange(e)}
-      //     />
-      //   </span>
-      //   <button type="submit">Submit</button>
-
-      //     </form>
-  
-      // </div>
     );
   }
   

@@ -5,7 +5,7 @@
     color: #010b40;
   }
   
-  /* .app {
+  .app {
     background-color: #0e4d92;
     margin: 0 auto;
     width: 300px;
@@ -14,43 +14,6 @@
     border-radius: 10px;
   } */
   
-  h3 {
-    color: black;
-    text-align: center;
-    padding-top: 8px;
-    letter-spacing: 1.2px;
-    font-weight: 500;
-    border-bottom: solid #B8860B;
-    font-size: 22px;
-  }
-
-  h2 {
-    color: black;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    letter-spacing: 12px;
-    font-weight: 800;
-    font-size: 25px;;
-    border-bottom: solid #B8860B;
-    color:#B8860B
-  }
-
-  h1 {
-    color: black;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    letter-spacing: 12px;
-    font-weight: 800;
-    font-size: 35px;;
-    border-bottom: solid #B8860B;
-    color:#B8860B
-  }
-  
-  p {
-    font-size: 25px;
-  }
   
   .stopwatch-card {
     text-align: center;
@@ -59,9 +22,10 @@
     padding: 5px 10px;
     border-radius: 7px;
     margin: 15px auto;
-    /* position: absolute; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 325px;
+
+    /* position: absolute;  */
     /* height: 130px; */
     /* top: 110px; */
     /* left: 50%; */
@@ -70,15 +34,15 @@
 
 
 
-  .btn {
+  button {
     outline: none;
-    background: transparent;
-    border: 1px solid #B8860B;
+    background: #B8860B;
+    border: 1px solid #cfcfcf;
     padding: 5px 10px;
     border-radius: 7px;
-    color: #B8860B;
+    color: white;
     cursor: pointer;
-    width: 200px;
+    width: 100px;
     display: flex;
     font-weight: 600;
     justify-content: space-evenly;

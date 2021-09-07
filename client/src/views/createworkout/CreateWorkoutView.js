@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import AddCircuit from "./AddCircuit";
 import DisplayWorkout from "./DisplayWorkout"
-import "./CreateWorkoutView.css"
 
 
 const EmptyWorkoutData = {
@@ -71,9 +70,19 @@ function CreateWorkoutView(props) {
           <form
           className="FinishedWorkout"
           onSubmit={e => handleSubmit(e)}
+          style = {{
+            margin: '20px',
+            padding: '10px',
+            border: '1px solid #B8860B'
+          }}
+
           >
             <h4>4. Finalise your Workout</h4>
-            <div className="form-row">
+            <div className="form-row"
+                    style = {{
+                      display: 'block',
+                      margin: '10px',
+                    }}>
             
             <div className="form-group col-form-label">
               <label for="restBetweenCircuits">Rest Time Between Circuits (seconds)?</label>
@@ -102,10 +111,24 @@ function CreateWorkoutView(props) {
             
             </div>
 
-                <h5>Finished Workout?</h5>
+                <h5
+                style = {{marginLeft: '20px',}}>Finished Workout?</h5>
                 <div className="form-row align-items-center">
                 <div className="col-form-label">
-            <button type="submit" className="btn btn-primary">Submit Workout</button>
+                    <button 
+                      type="submit" 
+                      className="btn btn-primary"
+                      style = {{
+                        backgroundColor: '#B8860B',
+                        height: '40px',
+                        border: 'none',
+                        textAlign: 'center',
+                        color: 'white',
+                        margin: '0px 30px',
+                        width: '300px',
+                        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
+                        }}>
+                  Submit Workout</button>
                 </div>
                 </div>
           </form>

@@ -1,6 +1,6 @@
 import React from "react";
-import './WorkoutLibraryView.css';
 import { Link } from 'react-router-dom';
+import { selectColor } from "debug";
 
 function WorkoutLibraryView(props) {
   // let workout = props.workout;
@@ -22,7 +22,7 @@ props.workoutLibrary.map((w) => (
 
 
    <div className="card mt-3"  
-   style={{width:"15rem", height:"20rem", objectFit: "cover"}}
+   style={{width:"15rem", height:"22rem", objectFit: "cover"}}
    key={w.workoutID}
    >
    {/* <img className="card-img-top" src="" alt="" style={{width:"15rem", height:"8rem", justifyContent:"center"}}/> */}
@@ -30,7 +30,27 @@ props.workoutLibrary.map((w) => (
    <div className = 'deleteWorkout'>
   <div className= 'd-flex justify-content-end'
   style = {{padding: 0, margin: 0,}}>
-   <button onClick={(e) => props.deleteWorkoutCb(w.workoutID)} type="button">x</button>
+   <button 
+      onClick={(e) => props.deleteWorkoutCb(w.workoutID)} 
+      type="button"
+      data-toggle="tooltip" 
+      data-placement="top" 
+      title="Delete Workout"
+       style = {{
+         backgroundColor: '#B8860B',
+         height: '40px',
+         border: 'none',
+         textAlign: 'center',
+         color: 'white',
+         margin: '10px 10px',
+         width: '40px',
+         boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
+         fontWeight: '800',
+         cursor: 'pointer',
+         
+         
+         }}
+         >x</button>
    </div>
    </div>
 
@@ -44,7 +64,13 @@ props.workoutLibrary.map((w) => (
         <h8>Duration:</h8> <br></br>
         <h8>Date Created:</h8>
 
-       <ul> 1st Exercise in each circuit:
+       <ul
+       style ={{
+         fontSize: '13px',
+         listStyle: 'none',
+         textAlign: 'left'
+       }}
+       > 1st Exercise in each circuit:
           {w.circuits[0] &&<li>Circuit {w.circuits[0].circuitName}: {w.circuits[0].exercises[0].exerciseName}</li>}
           {w.circuits[1] &&<li>Circuit {w.circuits[1].circuitName}: {w.circuits[1].exercises[0].exerciseName}</li>}
           {w.circuits[2] &&<li>Circuit {w.circuits[2].circuitName}: {w.circuits[2].exercises[0].exerciseName}</li>}
@@ -54,7 +80,18 @@ props.workoutLibrary.map((w) => (
    </p>
    
    <div className="d-flex justify-content-center mb-5">
-   <a href={'/workouts/'+w.workoutID} className="btn btn-primary">Go to Workout</a>
+   <a href={'/workouts/'+w.workoutID} className="btn btn-primary"
+       style = {{
+         backgroundColor: '#B8860B',
+         height: '40px',
+         border: 'none',
+         textAlign: 'center',
+         color: 'white',
+         margin: '0px 10px',
+         width: '300px',
+         boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
+         }}
+   >Go to Workout</a>
    </div>
    </div>
 

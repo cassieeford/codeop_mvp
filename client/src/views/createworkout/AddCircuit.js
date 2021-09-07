@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import AddExercise from "./AddExercise";
-import './AddCircuit.css';
 import DisplayCurrentCircuit from "./DisplayCurrentCircuit";
 
 //used to automatically give circuit a name
@@ -76,7 +75,13 @@ function AddCircuit(props) {
     return (
 
       <div>
-      <div className="AddCircuit">
+      <div className="AddCircuit"
+                style = {{
+                  margin: '20px',
+                  padding: '10px',
+                  border: '1px solid #B8860B'
+                }}>
+
       <h4> 1. Create a Circuit </h4>
       <span className="AddCircuitGrid">
       <AddExercise addExerciseCb={exercise => addExercise(exercise)}/>
@@ -89,12 +94,18 @@ function AddCircuit(props) {
 
         </div>
 
-        <div className = 'circuitCreate'>
+        <div className = 'circuitCreate'
+        style = {{
+          margin: '20px',
+          padding: '10px',
+          border: '1px solid #B8860B'
+        }}>
 
         <h4> 2. Create Sets for your Circuit  </h4>
 <form
 className="AddCircuitForm"
 onSubmit={e => handleSubmit(e)}
+
 >
   <div className="form-row">
   
@@ -126,7 +137,20 @@ onSubmit={e => handleSubmit(e)}
   </div>
 
       <h5>Finished Circuit?</h5>
-  <button type="submit" className="btn btn-primary">Add Circuit to My Workout</button>
+  <button 
+    type="submit" 
+    className="btn btn-primary"
+    style = {{
+      backgroundColor: '#B8860B',
+      height: '40px',
+      border: 'none',
+      textAlign: 'center',
+      color: 'white',
+      margin: '0px 10px',
+      width: '300px',
+      boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
+      }}
+      >Add Circuit to My Workout</button>
 
 </form>
 

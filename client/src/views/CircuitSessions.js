@@ -77,7 +77,7 @@ const CircuitSessions = (props) => {
 
                   <div className='stopwatch-card'>
                     <h3>{props.exercise}</h3>
-                    <h5>Session</h5>
+                    <h6>Session</h6>
                     <p> 
                         {formatTime()}</p> {/* here we will show timer */}
                     <div className='buttons'>

@@ -2,7 +2,6 @@
 import React from 'react';
 import DisplaySingleCircuitComponent from './DisplaySingleCircuitComponent';
 import { Link, useParams } from 'react-router-dom';
-import './DisplayTextSingleWorkout.css'
 
 
 function DisplayTextSingleWorkout(props) {
