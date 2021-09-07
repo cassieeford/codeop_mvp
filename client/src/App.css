@@ -13,35 +13,42 @@ form{
 
 h1 {
     color: black;
+    text-decoration-style: dashed;
     text-align: center;
-    padding-top: 15px;
+    padding-top: 40px;
     padding-bottom: 15px;
     letter-spacing: 12px;
     font-weight: 800;
     font-size: 35px;;
-    border-bottom: solid #B8860B;
-    color:#B8860B
+    /* color:#B8860B */
   }
 
 h2 {
     color: black;
     text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 50px;
+    padding-bottom: 30px;
     letter-spacing: 12px;
     font-weight: 800;
     font-size: 25px;;
     border-bottom: solid #B8860B;
-    color:#B8860B
   }
 
 h3 {
     color: black;
     text-align: center;
     padding-top: 8px;
-    letter-spacing: 1.2px;
+    letter-spacing: 3px;
     font-weight: 500;
     border-bottom: solid #B8860B;
+    font-size: 22px;
+  }
+  h4 {
+    color: black;
+    text-align: left;
+    padding-top: 8px;
+    letter-spacing: 1.2px;
+    font-weight: 500;
     font-size: 22px;
   }
   h5 {
@@ -61,7 +68,7 @@ h3 {
     font-size: 18px;
   }
   p {
-    font-size: 25px;
+    font-size: 20px;
   }
 
 

@@ -146,7 +146,7 @@ onSubmit={e => handleSubmit(e)}
       border: 'none',
       textAlign: 'center',
       color: 'white',
-      margin: '0px 10px',
+      margin: '10px 10px',
       width: '300px',
       boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
       }}

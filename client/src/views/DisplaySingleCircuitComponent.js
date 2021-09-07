@@ -4,6 +4,7 @@ import './DisplaySingleCircuitComponent.css'
 import Countdown from 'react-countdown';
 import ReactDOM from 'react-dom';
 import CircuitTimer from './CircuitTimer'
+import PomApp from './PomPom/PomApp.js'
 
 function DisplaySingleCircuitComponent(props) {
 
@@ -28,6 +29,16 @@ function DisplaySingleCircuitComponent(props) {
             break={e.timeOff}
             /> 
             ))}
+
+
+            {/* { props.c.exercises.map((e)=> (
+            <PomApp
+            key={e.id}
+            exercise={e.exerciseName}
+            session={e.timeOn}
+            break={e.timeOff}
+            /> 
+            ))} */}
             
 {/*             
             <CircuitSessions 

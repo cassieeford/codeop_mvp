@@ -33,6 +33,7 @@ function SingleWorkoutView(props) {
       }, []);
 
     // Return 404 if workout doesn't exist
+   
     if (!workout) {
         return <Error404View />;
     } 

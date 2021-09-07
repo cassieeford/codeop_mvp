@@ -59,7 +59,7 @@ function CreateWorkoutView(props) {
 
     return (
       <div className="AddWorkout">
-        <h4>Create Your Workout</h4>
+        <h2>Create Workout</h2>
 
         <AddCircuit addCircuitToWorkoutCb={newCircuit => addCircuitToWorkout(newCircuit)}/>
          
@@ -124,7 +124,7 @@ function CreateWorkoutView(props) {
                         border: 'none',
                         textAlign: 'center',
                         color: 'white',
-                        margin: '0px 30px',
+                        margin: '10px 30px',
                         width: '300px',
                         boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
                         }}>
